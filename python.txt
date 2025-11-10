@@ -1,0 +1,83 @@
+# Program to print first N prime numbers
+
+def is_prime(num):
+    """Function to check if a number is prime."""
+    if num < 2:
+        return False
+    for i in range(2, int(num**0.5) + 1):
+        if num % i == 0:
+            return False
+    return True
+
+# Input: how many prime numbers to print
+n = int(input("Enter how many prime numbers you want to print: "))
+
+count = 0
+num = 2  # first prime number
+
+print(f"\nFirst {n} Prime Numbers are:")
+
+while count < n:
+    if is_prime(num):
+        print(num, end=" ")
+        count += 1
+    num += 1
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Python Program - Print (First) N Prime Numbers
+
+Name
+(Not fully provided in the original)
+
+Theory
+A prime number is a natural number greater than 1 that is divisible only by 1 and itself.
+For example: 2, 3, 5, 7, 11, 13, etc.
+
+Logic used:
+
+Take input for the number N.
+Check each number starting from 2.
+Use a loop to test divisibility.
+If a number is prime, print it and increase the count until N primes are printed.
+Python makes this simple due to its easy syntax, loops, and condition checking.
+
+Features of Python Program--
+Easy to learn & Readable
+Clear syntax
+Similar to English...
+
+
+Integrated language---
+Python code is executed in a binary making debugging easy.
+
+Object oriented
+Supported cluster function and object
+
+
+Extensive libraries
+Product logic relation of built-in module + package
+
+
+Cross-platform
+Worker on vendor or like an administrator and macOS virtual
+
