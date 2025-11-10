@@ -1,0 +1,134 @@
+public class Employee {
+
+    // Constructor Overloading
+    Employee(int rollNo,String name){
+        System.out.println(rollNo+" "+name);
+    }
+    Employee(int id , int age , String name){
+        System.out.println(id+" "+age+" "+name);
+    }
+       
+    // method overloading
+    void display() {
+        Syso("Display method with no parameter");
+    }
+    void display(String msg) {
+        syso(msg);
+    }
+
+
+    public static void main(String[] args) {
+        Employee e1 = new Employee(19,"Siddhant");
+        Employee e2 = new Employee(7019,21,"Siddhant");
+ 
+        e1.display();
+        e1.display("hello");
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program for Method and Constructor Overloading
+
+AIM:
+To write a program in Java to illustrate method and constructor overloading to achieve polymorphism.
+
+THEORY:
+
+Overloading Methods:
+In Java, it is possible to define two or more methods within the same class that share the same name, as long as their 
+parameter declarations are different. When this is the case, the methods are said to be overloaded, and the process is 
+referred to as method overloading. Method overloading is one of the ways that Java supports polymorphism. If you have never 
+used a language that allows the overloading of methods, then the concept may seem strange at first. But as you will see,
+method overloading is one of Java's most exciting and useful features. When an overloaded method is invoked, Java uses the
+type and/or number of arguments as its guide to determine which version of the overloaded method to actually call. Thus, 
+overloaded methods must differ in the type and/or number of their parameters. While overloaded methods may have different 
+return types, the return type alone is insufficient to distinguish two versions of a method. When Java encounters a call to 
+an overloaded method, it simply executes the version of the method whose parameters match the arguments used in the call.
+
+Here is a simple example that illustrates method overloading:
+
+java
+// Demonstrate method overloading.
+class OverloadDemo {
+    void test() {
+        System.out.println("No parameters");
+    }
+    // Overload test for one integer parameter.
+    void test(int a) {
+        System.out.println("a: " + a);
+    }
+    // Overload test for two integer parameters.
+    void test(int a, int b) {
+        System.out.println("a and b: " + a + " " + b);
+    }
+    // Overload test for a double parameter
+    double test(double a) {
+        System.out.println("double a: " + a);
+        return a*a;
+    }
+}
+
+class Overload {
+    public static void main(String args[]) {
+        OverloadDemo ob = new OverloadDemo();
+        double result;
+        // call all versions of test()
+        ob.test();
+        ob.test(10);
+        ob.test(10, 20);
+        result = ob.test(123.25);
+        System.out.println("Result of ob.test(123.25): " + result);
+    }
+}
+This program generates the following output:
+
+text
+No parameters
+a: 10
+a and b: 10 20
+double a: 123.25
+Result of ob.test(123.25): 15190.5625
+As you can see, test() is overloaded four times. The first version takes no parameters, the second takes one integer parameter, 
+the third takes two integer parameters, and the fourth takes one double parameter. The fact that the fourth version of test() 
+also returns a value is of no consequence relative to overloading, since return types do not play a role in overload resolution.
+When an overloaded method is called, Java looks for a match between the arguments used to call the method and the method’s parameters. 
+However, this match need not always be exact. In some cases, Java’s automatic type conversions can play a role in overload resolution.
+
+Method overloading supports polymorphism because it is one way that Java implements the “one interface, multiple methods” paradigm. 
+When you overload a method, each version of that method can perform any activity you desire. There is no rule stating that overloaded 
+methods must relate to one another. However, from a stylistic point of view, method overloading implies a relationship. Thus,
+while you can use the same name to overload unrelated methods, you should not. For example, you could use the name sqr to create 
+methods that return the square of an integer and the square root of a floating-point value. But these two operations are fundamentally
+different. Applying method overloading in this manner defeats its original purpose. In practice, you should only overload closely related operations.
+
+Overloading Constructors
+In addition to overloading normal methods, you can also overload constructor methods. In fact, for most real-world classes that you
+create, overloaded constructors will be the norm, not the exception. To understand why, let’s return to the Box class developed in
+the preceding chapter. Following is the latest version of Box:
+
+java
+class Box {
+    double width;
+    double height;
+    double depth;
+    // This is the constructor for Box.
+    Box(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
+}
