@@ -1,0 +1,186 @@
+import java.util.Scanner;
+
+public class sortingList {
+
+    void sortIntValues(int a[],int n){
+        for (int i = 0; i < n-1 ; i++) {
+            for (int j = i+1; j < n; j++) {
+                if(a[i] > a[j]){
+                    int temp = a[i];
+                    a[i] = a[j];
+                    a[j]=temp;
+                }
+
+            }
+        }
+
+    }
+
+    void sortStringValues(String a[],int n){
+        for (int i = 0; i < n-1; i++) {
+            for (int j = i+1; j < n; j++) {
+                if((a[i].compareTo(a[j]))>0){
+                    String temp = a[i];
+                    a[i] =a[j];
+                    a[j]= temp;
+                }
+
+            }
+
+        }
+    }
+
+
+
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        sortingList sort = new sortingList();
+        int n;
+        int choice;
+        do {
+            System.out.println("Menu:\n 1.sorting of integer array\n 2.sorting of string array\n 3.exit");
+            System.out.print("Enter your choice: ");
+            choice = in.nextInt();
+            switch (choice){
+                case 1 :
+                    System.out.print("Enter total number of values: ");
+                    n = in.nextInt();
+                    int a[] = new int[n];
+                    System.out.print("Enter "+n+" values : ");
+                    for (int i = 0; i < n; i++) {
+                        a[i] = in.nextInt();
+                    }
+                    sort.sortIntValues(a,n);
+                    System.out.print("Array of sorted values : ");
+                    for (int i = 0; i < n; i++) {
+                        System.out.print(a[i]+" ");
+                    }
+                    System.out.println();
+                    break;
+                case 2 :
+                    System.out.println("Enter total number of values : ");
+                    n=in.nextInt();
+                    String b[] = new String[n];
+                    System.out.print("Enter "+n+" values : ");
+                    for (int i = 0; i < n; i++) {
+                        b[i] = in.next();
+                    }
+                    sort.sortStringValues(b,n);
+                    System.out.print("Array of sorted values : ");
+                    for (int i = 0; i < n; i++) {
+                        System.out.print(b[i]+" ");
+                    }
+                    System.out.println();
+                    break;
+                case 3 :
+                    System.out.println("Thank You....!");
+                    break;
+                default:
+                    System.out.println("Invalid choice");
+            }
+
+        }while(choice!=3);
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program for Sorting a List of Integers and Names
+
+AIM:
+To write program in Java to sort i) List of integers ii) List of names. using Arrays and Strings.
+
+THEORY:
+
+ARRAYS:
+An array is a group of like-typed variables that are referred to by a common name. Arrays of any type can be created and may have one or more dimensions.
+A specific element in an array is accessed by its index. Arrays offer a convenient means of grouping related information.
+
+One-Dimensional Arrays:
+A one-dimensional array is, essentially, a list of like-typed variables. To create an array, you first must create an array variable of the desired type. 
+The general form of a one-dimensional array declaration is
+type var-name[];
+Here, type declares the base type of the array. The base type determines the data type of each element that comprises the array. 
+Thus, the base type for the array determines what type of data the array will hold. For example, the following declares an array named month_days with the type “array of int”:
+int month_days[];
+
+Although this declaration establishes the fact that month_days is an array variable, no array actually exists. 
+In fact, the value of month_days is set to null, which represents an array with no value. To link month_days with an actual, 
+physical array of integers, you must allocate one using new and assign it to month_days. new is a special operator that allocates memory.
+The general form of new as it applies to one-dimensional arrays appears follows:
+array-var = new type[size];
+
+Here, type specifies the type of data being allocated, size specifies the number of elements in the array, and array-var is
+the array variable that is linked to the array. That is, to use new to allocate an array, you must specify the type and number 
+of elements to allocate. The elements in the array allocated by new will automatically be initialized to zero. This example allocates
+a 12-element array of integers and links them to month_days.
+month_days = new int[12];
+After this statement executes, month_days will refer to an array of 12 integers. Further, all elements in the array will be initialized to zero.
+
+It is possible to combine the declaration of the array variable with the allocation of the array itself, as shown here:
+int month_days[] = new int[12];
+
+Arrays can be initialized when they are declared. The process is much the same as that used to initialize the simple types.
+An array initializer is a list of comma-separated expressions surrounded by curly braces. The commas separate the values of the array elements. 
+The array will automatically be created large enough to hold the number of elements you specify in the array initializer. 
+There is no need to use new. For example, to store the number of days in each month, the following code creates an initialized array of integers:
+
+java
+class AutoArray {
+    public static void main(String args[]) {
+        int month_days[] = { 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31 };
+        System.out.println("April has " + month_days[3] + " days.");
+    }
+}
+When you run this program, it prints the number of days in April. As mentioned, Java array indexes start with zero, so the number of days in April is month_days[3] or 30.
+
+STRINGS:
+Strings, which are widely used in Java programming, are a sequence of characters. The Java platform provides the String class to create and manipulate strings.
+The first thing to understand about strings is that every string you create is actually an object of type String. Even string constants are actually String objects.
+
+For example, in the statement
+System.out.println("This is a String, too");
+the string “This is a String, too” is a String constant.
+
+The second thing to understand about strings is that objects of type String are immutable; once a String object is created, 
+its contents cannot be altered. While this may seem like a serious restriction, it is not, for two reasons:
+
+If you need to change a string, you can always create a new one that contains the modifications.
+
+Java defines a peer class of String, called StringBuffer, which allows strings to be altered, so all
+of the normal string manipulations are still available in Java.
+
+Creating a String:
+Strings can be constructed in a variety of ways. The easiest is to use a statement like this:
+String myString = "this is a test";
+
+Once you have created a String object, you can use it anywhere that a string is allowed.
+For example, this statement displays myString:
+System.out.println(myString);
+
+Java defines one operator for String objects: +. It is used to concatenate two strings.
+For example, this statement
+String myString = "!" + " like " + "Java.";
+results in myString containing “I like Java.”
+
