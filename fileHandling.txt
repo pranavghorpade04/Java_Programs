@@ -1,0 +1,113 @@
+
+import java.io.*;
+
+class Basic {
+    public static void main(String[] args) {
+        // Source and destination file names
+        String inputFile = "input.txt";
+        String outputFile = "output.txt";
+
+        try {
+            // Step 1: Create and write some text to the input file
+            FileWriter fw = new FileWriter(inputFile);
+            fw.write("This is a sample input file.\n");
+            fw.write("It contains multiple lines of text.\n");
+            fw.write("This text will be copied to the output file.");
+            fw.close();
+
+            // Step 2: Create reader and writer objects
+            BufferedReader reader = new BufferedReader(new FileReader(inputFile));
+            BufferedWriter writer = new BufferedWriter(new FileWriter(outputFile));
+
+            String line;
+
+            // Step 3: Read each line from input file and write to output file
+            while ((line = reader.readLine()) != null) {
+                writer.write(line);
+                writer.newLine(); // move to next line
+            }
+
+            // Step 4: Close both streams
+            reader.close();
+            writer.close();
+
+            System.out.println("File copied successfully from " + inputFile + " to " + outputFile);
+        } 
+        catch (FileNotFoundException e) {
+            System.out.println("Error: File not found. Please check the input file name.");
+        } 
+        catch (IOException e) {
+            System.out.println("Error: An I/O exception occurred.");
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program for File Handling
+
+AIM:
+To write program in Java to read a data from one file and write in another file line by line.
+
+THEORY:
+
+Reading and Writing Files
+Java provides a number of classes and methods that allow you to read and write files. 
+Before we begin, it is important to state that the topic of file I/O is quite large and file I/O is 
+examined in detail in Part II. The purpose of this section is to introduce the basic techniques that
+read from and write to a file. Although bytes streams are used, these techniques can be adapted to the character-based streams.
+
+Two of the most often-used stream classes are FileInputStream and FileOutputStream, which create byte streams 
+linked to files. To open a file, you simply create an object of one of these classes, specifying the name of 
+the file as an argument to the constructor. Although both classes support additional constructors, 
+the following are the forms that we will be using:
+
+FileInputStream(String fileName) throws FileNotFoundException
+FileOutputStream(String fileName) throws FileNotFoundException
+
+Here, fileName specifies the name of the file that you want to open. When you create an input stream, 
+if the file does not exist, then FileNotFoundException is thrown. For output streams, if the file 
+cannot be opened or created, then FileNotFoundException is thrown. FileNotFoundException is a subclass
+of IOException. When an output file is opened, any preexisting file by the same name is destroyed.
+
+In situations in which a security manager is present, several of the file classes, including FileInputStream
+and FileOutputStream, will throw a SecurityException if a security violation occurs when attempting to open
+a file. By default, applications run via java do not use a security manager. For that reason, the I/O examples
+in this book do not need to watch for a possible SecurityException. However, other types of applications
+(such as applets) will use the security manager, and file I/O performed by such an application could 
+generate a SecurityException. In that case, you will need to appropriately handle this exception.
+
+
+When you are done with a file, you must close it. This is done by calling the close() method, 
+which is implemented by both FileInputStream and FileOutputStream. 
+
+It is shown here:
+void close() throws IOException
+Closing a file releases the system resources allocated to the file, allowing them to be used by another file.
+Failure to close a file can result in “memory leaks” because of unused resources remaining allocated.
