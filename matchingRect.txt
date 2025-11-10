@@ -1,0 +1,179 @@
+import java.util.Scanner;
+
+class Rectangle {
+    double length;
+    double breadth;
+
+    // Constructor
+    Rectangle(double l, double b) {
+        length = l;
+        breadth = b;
+    }
+
+    // Method to calculate area
+    double area() {
+        return length * breadth;
+    }
+
+    // Method to compare rectangles
+    boolean isEqual(Rectangle r) {
+        return (this.length == r.length && this.breadth == r.breadth);
+    }
+
+    // Method to compare area
+    boolean isSameArea(Rectangle r) {
+        return this.area() == r.area();
+    }
+}
+
+public class MatchRectangles {
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        // Input details for first rectangle
+        System.out.print("Enter length of first rectangle: ");
+        double l1 = sc.nextDouble();
+        System.out.print("Enter breadth of first rectangle: ");
+        double b1 = sc.nextDouble();
+
+        // Input details for second rectangle
+        System.out.print("Enter length of second rectangle: ");
+        double l2 = sc.nextDouble();
+        System.out.print("Enter breadth of second rectangle: ");
+        double b2 = sc.nextDouble();
+
+        // Create two rectangle objects
+        Rectangle rect1 = new Rectangle(l1, b1);
+        Rectangle rect2 = new Rectangle(l2, b2);
+
+        // Display area of both rectangles
+        System.out.println("\nArea of first rectangle: " + rect1.area());
+        System.out.println("Area of second rectangle: " + rect2.area());
+
+        // Compare rectangles
+        if (rect1.isEqual(rect2))
+            System.out.println("Rectangles have the SAME dimensions.");
+        else
+            System.out.println("Rectangles have DIFFERENT dimensions.");
+
+        if (rect1.isSameArea(rect2))
+            System.out.println("Rectangles have the SAME area.");
+        else
+            System.out.println("Rectangles have DIFFERENT areas.");
+
+        sc.close();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program for Matching Rectangles
+
+AIM:
+To write a program in Java to compare two rectangles on the basis of area and colour.
+
+THEORY:
+
+The General Form of a Class:
+When you define a class, you declare its exact form and nature. You do this by specifying the data that it contains and 
+the code that operates on that data. While very simple classes may contain only code or only data, most real-world classes
+contain both. A class is declared by use of the class keyword.
+
+A simplified general form of a class definition is shown here:
+
+java
+class classname {
+    type instance-variable1;
+    type instance-variable2;
+    // ...
+    type instance-variableN;
+
+    type methodname1(parameter-list) {
+        // body of method
+    }
+    type methodname2(parameter-list) {
+        // body of method
+    }
+    // ...
+    type methodnameN(parameter-list) {
+        // body of method
+    }
+}
+The data, or variables, defined within a class are called instance variables. The code is contained within methods.
+Collectively, the methods and variables defined within a class are called members of the class. In most classes, 
+the instance variables are acted upon and accessed by the methods defined for that class. Thus, as a general rule,
+it is the methods that determine how a class’s data can be used. Variables defined within a class are called instance
+variables because each instance of the class (that is, each object of the class) contains its own copy of these variables. 
+Thus, the data for one object is separate and unique from the data for another.
+
+All methods have the same general form as main(), which we have been using thus far. However, most methods will not be 
+specified as static or public. Notice that the general form of a class does not specify a main() method. Java classes do
+not need to have a main() method. You only specify one if that class is the starting point for your program. Further, 
+applets don’t require a main() method at all.
+
+Here is a complete program that uses the Box class:
+
+java
+/* A program that uses the Box class. Call this file BoxDemo.java */
+class Box {
+    double width;
+    double height;
+    double depth;
+}
+
+// This class declares an object of type Box.
+class BoxDemo {
+    public static void main(String args[]) {
+        Box mybox = new Box();
+        double vol;
+        // assign values to mybox's instance variables
+        mybox.width = 10;
+        mybox.height = 20;
+        mybox.depth = 15;
+        // compute volume of box
+        vol = mybox.width * mybox.height * mybox.depth;
+        System.out.println("Volume is " + vol);
+    }
+}
+Declaring Objects
+As just explained, when you create a class, you are creating a new data type. You can use this type to declare objects
+of that type. However, obtaining objects of a class is a two-step process. First, you must declare a variable of the
+class type. This variable does not define an object. Instead, it is simply a variable that can refer to an object. 
+Second, you must acquire an actual, physical copy of the object and assign it to that variable. You can do this using
+the new operator. The new operator dynamically allocates (that is, allocates at run time) memory for an object and 
+returns a reference to it. This reference is, more or less, the address in memory of the object allocated by new. 
+  This reference is then stored in the variable. Thus, in Java, all class objects must be dynamically allocated.
+
+In the preceding sample program, a line similar to the following is used to declare an object of type Box:
+
+java
+Box mybox = new Box();
+This statement combines the two steps just described. It can be rewritten like this to show each step more clearly:
+
+java
+Box mybox;           // declare reference to object
+mybox = new Box();   // allocate a Box object
