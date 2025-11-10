@@ -1,0 +1,139 @@
+class player {
+    String name;
+    
+    void show(){
+        System.out.println("Player Name "+ name);
+    }
+}
+
+class Cricket_player extends player{
+    Cricket_player(){
+        name="Cricket Player";
+
+    }
+}
+
+class football_player extends player{
+    football_player(){
+        name = "football player";
+    }
+
+}
+
+class hockey_player extends player{
+
+    hockey_player(){
+        name = "hockey player";
+    }
+}
+
+class main{
+    public static void main(String[] args) {
+        Cricket_player c1 = new Cricket_player();
+        football_player f1 = new football_player();
+        hockey_player h1 = new hockey_player();
+
+        c1.show();
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program for Inheritance 
+AIM: To write a program in Java to inherit the classes cricket_player,
+football_player and hockey_player from player class using the concept of inheritance.
+
+THEORY: Inheritance: Inheritance can be defined as the process where one object acquires the properties of another.With the use of inheritance the information is made manageable in a hierarchical order. The most commonly used keyword in inheritance are extends and implements. 
+
+Example:
+java
+// This program uses inheritance to extend Box.
+class Box {
+    double width;
+    double height;
+    double depth;
+
+    // construct clone of an object
+    Box(Box ob) { // pass object to constructor
+        width = ob.width;
+        height = ob.height;
+        depth = ob.depth;
+    }
+
+    // constructor used when all dimensions specified
+    Box(double w, double h, double d) {
+        width = w;
+        height = h;
+        depth = d;
+    }
+
+    // constructor used when no dimensions specified
+    Box() {
+        width = -1;  // use -1 to indicate
+        height = -1; // an uninitialized
+        depth = -1;  // box
+    }
+
+    // constructor used when cube is created
+    Box(double len) {
+        width = height = depth = len;
+    }
+
+    // compute and return volume
+    double volume() {
+        return width * height * depth;
+    }
+}
+
+// Here, Box is extended to include weight.
+class BoxWeight extends Box {
+    double weight; // weight of box
+
+    // constructor for BoxWeight
+    BoxWeight(double w, double h, double d, double m) {
+        width = w;
+        height = h;
+        depth = d;
+        weight = m;
+    }
+}
+
+class DemoBoxWeight {
+    public static void main(String args[]) {
+        BoxWeight mybox1 = new BoxWeight(10, 20, 15, 34.3);
+        BoxWeight mybox2 = new BoxWeight(2, 3, 4, 0.076);
+        double vol;
+        vol = mybox1.volume();
+        System.out.println("Volume of mybox1 is " + vol);
+        System.out.println("Weight of mybox1 is " + mybox1.weight);
+        System.out.println();
+        vol = mybox2.volume();
+        System.out.println("Volume of mybox2 is " + vol);
+        System.out.println("Weight of mybox2 is " + mybox2.weight);
+    }
+}
+The output from this program is shown here:
+Volume of mybox1 is 3000.0
+Weight of mybox1 is 34.3
+Volume of mybox2 is 24.0
+Weight of mybox2 is 0.076
+BoxWeight inherits all of the characteristics of Box and adds to them the weight component. 
+It is not necessary for BoxWeight to re-create all of the features found in Box. It can simply extend Box to meet its own purposes.
+Using super: Whenever a subclass needs to refer to its immediate superclass,it can do so by use of the keyword super. super has two general forms. 
+The first calls the superclass’ constructor. The second is used to access a member of the superclass that has been hidden by a member of a subclass.
+        f1.show();
+        h1.show();
+
+    }
+}
