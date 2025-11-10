@@ -1,0 +1,126 @@
+import java.util.Scanner;
+
+public class calculator {
+    public static void main(String[] args) {
+        Scanner in = new Scanner(System.in);
+        System.out.println("Welcome to calculator");
+        System.out.print("Enter 1st number: ");
+        int a= in.nextInt();
+        System.out.print("Enter 2nd number: ");
+        int b= in.nextInt();
+
+        calculator ob = new calculator();
+        int c;
+        do {
+        System.out.println("MENU: 1.Addition  2.Subtraction 3.Multiplication 4.Division 5.Exit");
+        System.out.println("Enter your choice");
+         c = in.nextInt();
+
+            switch (c){
+                case 1 :
+                    System.out.println("Addition is: " + ob.add(a,b));
+                    break;
+                case 2 :
+                    System.out.println("Subtraction is: " + ob.sub(a,b));
+                    break;
+                case 3 :
+                    System.out.println("Multiplication is: " + ob.mul(a,b));
+                    break;
+                case 4 :
+                    System.out.println("Division is: " + ob.div(a,b));
+                    break;
+                case 5 :
+                    System.out.println("Thank you!");
+                    break;
+                default :
+                    System.out.println("invalid choice");
+            }
+        }while (c!=5);
+
+
+    }
+
+    int add(int a,int b){
+        return a+b;
+    }
+    int sub(int a,int b){
+        return a-b;
+    }
+    int mul(int a,int b){
+        return a*b;
+    }
+     int div(int a,int b){
+        return a%b;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+TITLE: Java Program to Implement a Calculator 
+AIM: To write program in Java to implement a calculator with simple arithmetic operations such as Add,Subtract, 
+Multiply, Divide etc. using switch case and other simple Java statements. 
+
+THEORY: DATA TYPES: 1. Primitive (Intrinsic) data types 2. Non-primitive (Derived) data types 
+· Primitive (Intrinsic) Data Types: Primitive data types are non grouped pieces of data which can have only one value at a time. 
+They are the simplest built in forms of data in Java. Other data types are made up of combination of primitive data types. 
+Java initializes all primitive data types to default values if an initial value is not explicitly specified by the programmer. 
+Integer and floating-point variables are initialized to 0. The char data type is initialized to null and Boolean data types are set to false.
+The primitive data type keywords are as shown: 
+· byte 
+· short 
+· int 
+· long 
+· char
+· float
+· double 
+· boolean Integer Data Types: There are four integer data types:
+
+byte, short, int, and long. Each can handle different ranges of numbers, as shown: 
+Integer data type ranges: Type Length Minimum Value Maximum Value byte 8 bits -128 127 short 16 bits -32768 32767 int 32 bits -2,147,483,648 2,147,483,647 
+long 64 bits -9,223,372,036,854,775,808 9,223,372,036,854,775,807 · byte: The byte data type is an 8-bit signed two's complement integer.
+It has a minimum value of -128 and a maximum value of 127 (inclusive). 
+
+· short: The short data type is a 16-bit signed two's complement integer. It has a minimum value of -32,768 and a maximum value of 32,767 (inclusive). 
+· int: The int data type is a 32-bit signed two's complement integer. It has a minimum value of -2,147,483,648 and a maximum value of 2,147,483,647 (inclusive).
+For integral values, this data type is generally the default choice unless there is a reason (like the above) to choose something else. 
+· long: The long data type is a 64-bit signed two's complement integer. It has a minimum value of -9,223,372,036,854,775,808 and a maximum value of
+9,223,372,036,854,775,807 (inclusive). Use this data type when you need a range of values wider than those provided by int. 
+Char Data Types: Type char is basically a 16-bit unsigned integer that represents a Unicode value.Each printable and nonprintable character has a Unicode value. 
+Because Java stores all characters as Unicode, it can be used with virtually any written language in the world. 
+Floating-Point Data Types: Type float designates that the variable is a single-precision,32-bit, floating-point number.
+Type double is a double-precision, 64-bit floating-point number.
+
+Example:
+java
+float m;
+double n;
+Double Data Types: The double data type is a double-precision 64-bit IEEE 754 floating point.For decimal values, 
+this data type is generally the default choice. As mentioned above, this data type should never be used for precise values, such as currency.
+
+Boolean Data Types: Type boolean can only have a value of true or false.Internal to Java, a Boolean value is a 1-bit logical quantity.
+Boolean values are used in branching/looping statements to check validity of the logical expression included. In addition to the eight primitive data types listed above,
+the Java programming language also provides special support for character strings via the java.lang.String class. Non-primitive (Derived) Data Types: (Content not fully provided in the original)
